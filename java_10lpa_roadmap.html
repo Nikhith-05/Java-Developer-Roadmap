@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java 10+ LPA Roadmap — Complete Developer Guide 2026</title>
+  <meta name="description"
+    content="Complete 12-month Java developer roadmap from zero to 10+ LPA job-ready in India 2026. DSA, Spring Boot, projects, interview prep.">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EE0000'/%3E%3Cstop offset='100%25' stop-color='%23CC0000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M18 14c0 0 2-6 6-6s4 4 8 4 6-4 6-4' fill='none' stroke='%23EE0000' stroke-width='2.5' stroke-linecap='round' opacity='0.7'/%3E%3Crect x='12' y='20' width='32' height='28' rx='3' fill='url(%23g)'/%3E%3Crect x='16' y='24' width='24' height='10' rx='2' fill='%230c0c0c' opacity='0.3'/%3E%3Cpath d='M44 26c4 0 8 2 8 7s-4 7-8 7' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/%3E%3Crect x='10' y='48' width='36' height='4' rx='2' fill='url(%23g)'/%3E%3Ctext x='28' y='44' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='white'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-bg-hover: rgba(204, 0, 0, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-border-strong: rgba(204, 0, 0, 0.35);
+      --glass-blur: 18px;
+      --text-primary: #f0f0f0;
+      --text-secondary: rgba(240, 240, 240, 0.65);
+      --text-tertiary: rgba(240, 240, 240, 0.35);
+      --accent: #ee0000;
+      --accent-dim: rgba(204, 0, 0, 0.15);
+      --accent-glow: rgba(238, 0, 0, 0.35);
+      --blue: #ff6b6b;
+      --blue-dim: rgba(255, 107, 107, 0.12);
+      --amber: #ffa94d;
+      --amber-dim: rgba(255, 169, 77, 0.12);
+      --rose: #ff4d4d;
+      --rose-dim: rgba(255, 77, 77, 0.10);
+      --muted: rgba(255, 255, 255, 0.45);
+      --muted-dim: rgba(255, 255, 255, 0.06);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 8px var(--accent-glow);
+      }
+
+      50% {
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+    }
+
+    @keyframes redLine {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 60px;
+      }
+    }
+
+    @keyframes logoSpin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes logoAura {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes logoFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      color: var(--text-primary);
+      min-height: 100vh;
+      background: #0c0c0c;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 700px 500px at 15% 10%, rgba(204, 0, 0, 0.07), transparent),
+        radial-gradient(ellipse 500px 500px at 85% 85%, rgba(204, 0, 0, 0.04), transparent),
+        radial-gradient(ellipse 400px 300px at 50% 50%, rgba(60, 0, 0, 0.06), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeSlideIn 0.6s ease;
+    }
+
+    .page-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .page-header h1::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #ee0000;
+      margin: 10px auto 0;
+      animation: redLine 0.8s ease forwards;
+    }
+
+    .page-header p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    h2.sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    /* ─── Navigation ─── */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 1rem 0 1.8rem;
+      justify-content: center;
+      animation: fadeSlideIn 0.6s ease 0.1s both;
+    }
+
+    .nav button {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      cursor: pointer;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text-secondary);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.2px;
+    }
+
+    .nav button:hover {
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-strong);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav button.active {
+      background: rgba(204, 0, 0, 0.2);
+      color: #fff;
+      border-color: rgba(238, 0, 0, 0.5);
+      box-shadow: 0 0 20px rgba(204, 0, 0, 0.15);
+    }
+
+    /* ─── Sections ─── */
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+      animation: fadeSlideIn 0.45s ease;
+    }
+
+    /* ─── Cards ─── */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 1.8rem;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-strong);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ─── Badges ─── */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge.must {
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .badge.high {
+      background: var(--blue-dim);
+      color: var(--blue);
+    }
+
+    .badge.good {
+      background: var(--amber-dim);
+      color: var(--amber);
+    }
+
+    .badge.opt {
+      background: var(--muted-dim);
+      color: var(--muted);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card ul li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.6;
+    }
+
+    .card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .card ul li::before {
+      content: "› ";
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ─── Timeline ─── */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #ee0000, #cc0000, rgba(255, 255, 255, 0.06));
+      border-radius: 2px;
+    }
+
+    .titem {
+      position: relative;
+      margin-bottom: 1.6rem;
+    }
+
+    .titem::before {
+      content: "";
+      position: absolute;
+      left: -23px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ee0000;
+      border: 2px solid #0c0c0c;
+      box-shadow: 0 0 10px var(--accent-glow);
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    .titem h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .titem p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .titem .tag {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 3px 10px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── Tables ─── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 1.8rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--text-secondary);
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* ─── Weekly grid ─── */
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 10px;
+      margin-bottom: 1.8rem;
+    }
+
+    .day {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border-radius: var(--radius-sm);
+      padding: 12px 8px;
+      font-size: 11px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+    }
+
+    .day:hover {
+      background: var(--glass-bg-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .day .dname {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .day .dcon {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ─── Alerts ─── */
+    .warn {
+      background: var(--rose-dim);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(251, 113, 133, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .warn p {
+      font-size: 13px;
+      color: var(--rose);
+      line-height: 1.7;
+    }
+
+    .success {
+      background: rgba(204, 0, 0, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(204, 0, 0, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .success p {
+      font-size: 13px;
+      color: #ff6b6b;
+      line-height: 1.7;
+    }
+
+    /* ─── Titles ─── */
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 1.4rem 0 .7rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-title::before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: #ee0000;
+      border-radius: 2px;
+    }
+
+    /* ─── Progress ─── */
+    .prog-bar {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 3px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .prog-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #ee0000, #cc0000);
+    }
+
+    /* ─── Project cards ─── */
+    .proj-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .proj-card:hover {
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .proj-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .proj-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .proj-meta span {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .proj-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ─── Truth boxes ─── */
+    .truth-box {
+      border-left: 3px solid;
+      border-image: linear-gradient(180deg, #ee0000, #cc0000) 1;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.2rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .truth-box h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .truth-box p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(204, 0, 0, 0.3);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(238, 0, 0, 0.5);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .page-header h1 {
+        font-size: 22px;
+      }
+
+      .week-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      }
+
+      .phase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header" style="display:flex;flex-direction:column;align-items:center;">
+      <div class="logo-wrapper"
+        style="position:relative;width:140px;height:120px;margin:0 auto 18px;display:flex;justify-content:center;align-items:center;animation:logoFloat 4s ease-in-out infinite;">
+        <!-- Pulsing background aura -->
+        <div
+          style="position:absolute;inset:5px;border-radius:50%;background:radial-gradient(circle, rgba(238,0,0,0.12) 0%, transparent 70%);animation:logoAura 3s ease-in-out infinite;">
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120"
+          style="position:relative;z-index:1;filter:drop-shadow(0 0 18px rgba(238,0,0,0.3));">
+          <defs>
+            <linearGradient id="jg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FF2020" />
+              <stop offset="100%" stop-color="#AA0000" />
+            </linearGradient>
+            <linearGradient id="jshine" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="white" stop-opacity="0.25" />
+              <stop offset="100%" stop-color="white" stop-opacity="0" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Steam wisps with float animation -->
+          <g filter="url(#glow)">
+            <path d="M36 34 Q39 24 36 16 Q33 8 36 2" fill="none" stroke="#EE0000" stroke-width="2"
+              stroke-linecap="round" opacity="0.4">
+              <animate attributeName="d"
+                values="M36 34 Q39 24 36 16 Q33 8 36 2;M36 34 Q33 22 36 14 Q39 6 36 0;M36 34 Q39 24 36 16 Q33 8 36 2"
+                dur="2.5s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.5s" repeatCount="indefinite" />
+            </path>
+            <path d="M52 32 Q55 20 52 12 Q49 4 52 -2" fill="none" stroke="#FF3333" stroke-width="2.5"
+              stroke-linecap="round" opacity="0.5">
+              <animate attributeName="d"
+                values="M52 32 Q55 20 52 12 Q49 4 52 -2;M52 32 Q49 18 52 10 Q55 2 52 -4;M52 32 Q55 20 52 12 Q49 4 52 -2"
+                dur="3s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" />
+            </path>
+            <path d="M68 34 Q71 24 68 16 Q65 8 68 2" fill="none" stroke="#EE0000" stroke-width="2"
+              stroke-linecap="round" opacity="0.4">
+              <animate attributeName="d"
+                values="M68 34 Q71 24 68 16 Q65 8 68 2;M68 34 Q65 22 68 14 Q71 6 68 0;M68 34 Q71 24 68 16 Q65 8 68 2"
+                dur="2.8s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.2;0.55;0.2" dur="2.8s" repeatCount="indefinite" />
+            </path>
+          </g>
+
+          <!-- Cup body -->
+          <rect x="22" y="38" width="60" height="48" rx="5" fill="url(#jg)" />
+          <!-- Glossy reflection -->
+          <rect x="22" y="38" width="60" height="24" rx="5" fill="url(#jshine)" />
+          <!-- Inner dark line -->
+          <rect x="28" y="42" width="48" height="3" rx="1.5" fill="white" opacity="0.1" />
+
+          <!-- Handle -->
+          <path d="M82 50c10 0 16 6 16 14s-6 14-16 14" fill="none" stroke="url(#jg)" stroke-width="5"
+            stroke-linecap="round" filter="url(#glow)" />
+
+          <!-- Saucer -->
+          <ellipse cx="52" cy="90" rx="40" ry="5" fill="url(#jg)" opacity="0.8" />
+          <ellipse cx="52" cy="89" rx="32" ry="3" fill="white" opacity="0.06" />
+
+          <!-- JAVA text -->
+          <text x="52" y="74" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="700" font-size="20"
+            fill="white" letter-spacing="2" filter="url(#glow)">JAVA</text>
+
+          <!-- Small coffee bean accent -->
+          <ellipse cx="52" cy="108" rx="8" ry="3" fill="#EE0000" opacity="0.2">
+            <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" />
+          </ellipse>
+        </svg>
+      </div>
+      <h1>Java Developer Roadmap — 0 to 10+ LPA</h1>
+      <p>A complete 12-month guide for India's 2026 tech market</p>
+    </div>
+
+    <h2 class="sr-only">Complete Java developer roadmap from zero to 10+ LPA job-ready in India (2026)</h2>
+
+    <div class="nav">
+      <button class="active" onclick="show('overview', this)">Overview</button>
+      <button onclick="show('phases', this)">Learning Phases</button>
+      <button onclick="show('dsa', this)">DSA Strategy</button>
+      <button onclick="show('backend', this)">Backend Stack</button>
+      <button onclick="show('projects', this)">10 Projects</button>
+      <button onclick="show('interview', this)">Interview Prep</button>
+      <button onclick="show('resume', this)">Resume</button>
+      <button onclick="show('job', this)">Job Strategy</button>
+      <button onclick="show('schedule', this)">Weekly Plan</button>
+      <button onclick="show('truth', this)">Brutal Truth</button>
+    </div>
+
+    <div id="overview" class="section active">
+      <p class="section-title">Your 12-month roadmap to 10+ LPA</p>
+      <div class="success">
+        <p>This is fully achievable for a disciplined fresher. In India's 2026 market, product companies (Razorpay,
+          CRED,
+          Zepto, PhonePe, Atlassian, Amazon, Flipkart) hire freshers at 12–35 LPA if you have the right skills. Service
+          companies (Infosys, Wipro) offer 3–5 LPA. Your target: mid-tier product/startup or top MAANG with strong prep.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="titem">
+          <h3>Month 0–1: Foundation</h3>
+          <p>Computer basics, internet, Git, Linux, IDE setup, Java installation. Build the habit of coding daily.</p>
+          <span class="tag">Phase 1</span>
+        </div>
+        <div class="titem">
+          <h3>Month 1–3: Core Java</h3>
+          <p>Java syntax → OOP → Collections → Java 8+ → Exception handling → Multithreading. Solve 100 basic coding
+            problems.</p><span class="tag">Phase 2</span>
+        </div>
+        <div class="titem">
+          <h3>Month 3–5: DSA</h3>
+          <p>Arrays → Strings → Hashing → LinkedList → Trees → Graphs → DP. Solve 250+ problems on LeetCode.</p><span
+            class="tag">Phase 3</span>
+        </div>
+        <div class="titem">
+          <h3>Month 5–8: Backend Dev</h3>
+          <p>SQL → JDBC → Spring Boot → REST APIs → Hibernate → Security → Build 2–3 major projects.</p><span
+            class="tag">Phase 4</span>
+        </div>
+        <div class="titem">
+          <h3>Month 8–10: Advanced Topics</h3>
+          <p>Microservices → Docker → Kafka basics → Redis → System design → LLD → Resume polish.</p><span
+            class="tag">Phase
+            5</span>
+        </div>
+        <div class="titem">
+          <h3>Month 10–12: Job Hunt</h3>
+          <p>Apply aggressively → Mock interviews → Referrals → LinkedIn outreach → Negotiate offers.</p><span
+            class="tag">Phase 6</span>
+        </div>
+      </div>
+
+      <p class="sub-title">Priority legend</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem">
+        <span class="badge must">MUST LEARN</span>
+        <span class="badge high">HIGH ROI</span>
+        <span class="badge good">GOOD TO HAVE</span>
+        <span class="badge opt">OPTIONAL</span>
+      </div>
+      <table>
+        <tr>
+          <th>Topic area</th>
+          <th>Priority</th>
+          <th>Without it?</th>
+        </tr>
+        <tr>
+          <td>Core Java + OOP</td>
+          <td><span class="badge must">MUST LEARN</span></td>
+          <td>Cannot crack any Java interview</td>
+        </tr>
+        <tr>
+          <td>DSA (Arrays to Graphs)</td>
+          <td><span class="badge must">MUST LEARN</span></td>
+          <td>Eliminated in round 1 at all product companies</td>
+        </tr>
+        <tr>
+          <td>Spring Boot + REST</td>
+          <td><span class="badge must">MUST LEARN</span></td>
+          <td>No backend role possible</td>
+        </tr>
+        <tr>
+          <td>SQL + Hibernate</td>
+          <td><span class="badge must">MUST LEARN</span></td>
+          <td>Missing core backend skill</td>
+        </tr>
+        <tr>
+          <td>Dynamic Programming</td>
+          <td><span class="badge high">HIGH ROI</span></td>
+          <td>Can pass many rounds without it initially</td>
+        </tr>
+        <tr>
+          <td>System Design basics</td>
+          <td><span class="badge high">HIGH ROI</span></td>
+          <td>Required at Amazon, Flipkart for SDE1</td>
+        </tr>
+        <tr>
+          <td>Docker basics</td>
+          <td><span class="badge good">GOOD TO HAVE</span></td>
+          <td>Not asked heavily in fresher rounds</td>
+        </tr>
+        <tr>
+          <td>Kafka / Redis</td>
+          <td><span class="badge good">GOOD TO HAVE</span></td>
+          <td>Nice bonus for projects</td>
+        </tr>
+        <tr>
+          <td>React / Frontend</td>
+          <td><span class="badge opt">OPTIONAL</span></td>
+          <td>Backend roles don't need it</td>
+        </tr>
+        <tr>
+          <td>Kubernetes</td>
+          <td><span class="badge opt">OPTIONAL</span></td>
+          <td>Way too advanced for fresher</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="phases" class="section">
+      <p class="section-title">Phase-by-phase learning roadmap</p>
+
+      <p class="sub-title">Phase 1 — Foundation (Weeks 1–4)</p>
+      <div class="phase-grid">
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Computer & internet basics</h3>
+          <ul>
+            <li>How internet works (DNS, HTTP, IP)</li>
+            <li>Client-server model</li>
+            <li>RAM, CPU, OS basics</li>
+            <li>File systems</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Git & GitHub</h3>
+          <ul>
+            <li>init, clone, add, commit, push</li>
+            <li>Branching & merging</li>
+            <li>Pull requests</li>
+            <li>GitHub profile setup</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge high">HIGH ROI</span>
+          <h3>Linux basics</h3>
+          <ul>
+            <li>ls, cd, mkdir, rm, mv</li>
+            <li>chmod, sudo</li>
+            <li>Bash scripting basics</li>
+            <li>SSH basics</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>IDE setup</h3>
+          <ul>
+            <li>IntelliJ IDEA (preferred)</li>
+            <li>JDK 17 or 21 install</li>
+            <li>Maven project setup</li>
+            <li>Debug basics</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub-title">Phase 2 — Core Java (Weeks 5–12)</p>
+      <div class="phase-grid">
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Java basics</h3>
+          <ul>
+            <li>Data types, variables, operators</li>
+            <li>Conditionals, loops</li>
+            <li>Arrays & Strings</li>
+            <li>Methods & recursion</li>
+            <li>JVM / JDK / JRE explained</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>OOP (interview favourite)</h3>
+          <ul>
+            <li>Classes & Objects</li>
+            <li>Encapsulation</li>
+            <li>Inheritance</li>
+            <li>Polymorphism (overload/override)</li>
+            <li>Abstraction, Interfaces</li>
+            <li>Constructors, static keyword</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Collections framework</h3>
+          <ul>
+            <li>List, Set, Map, Queue</li>
+            <li>ArrayList vs LinkedList</li>
+            <li>HashMap internals</li>
+            <li>TreeMap, LinkedHashMap</li>
+            <li>PriorityQueue</li>
+            <li>Iterator, Comparable, Comparator</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Java 8+ features</h3>
+          <ul>
+            <li>Lambda expressions</li>
+            <li>Streams API (filter, map, reduce)</li>
+            <li>Optional class</li>
+            <li>Functional interfaces</li>
+            <li>Default & static methods in interfaces</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Exception & I/O</h3>
+          <ul>
+            <li>try-catch-finally</li>
+            <li>Custom exceptions</li>
+            <li>Checked vs unchecked</li>
+            <li>File I/O basics</li>
+            <li>Serialization basics</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge high">HIGH ROI</span>
+          <h3>Advanced Java</h3>
+          <ul>
+            <li>Multithreading basics</li>
+            <li>Synchronized, volatile</li>
+            <li>Executor framework</li>
+            <li>Generics</li>
+            <li>Garbage collection concepts</li>
+            <li>Memory (heap, stack, PermGen)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub-title">Design patterns (for 10+ LPA interviews)</p>
+      <table>
+        <tr>
+          <th>Pattern</th>
+          <th>Type</th>
+          <th>Why it matters</th>
+        </tr>
+        <tr>
+          <td>Singleton</td>
+          <td>Creational</td>
+          <td>Asked in almost every Java interview</td>
+        </tr>
+        <tr>
+          <td>Factory / Abstract Factory</td>
+          <td>Creational</td>
+          <td>Spring IoC uses this heavily</td>
+        </tr>
+        <tr>
+          <td>Builder</td>
+          <td>Creational</td>
+          <td>Common in Spring configs, Lombok</td>
+        </tr>
+        <tr>
+          <td>Observer</td>
+          <td>Behavioral</td>
+          <td>Event-driven systems, Kafka consumers</td>
+        </tr>
+        <tr>
+          <td>Strategy</td>
+          <td>Behavioral</td>
+          <td>Common in LLD machine coding rounds</td>
+        </tr>
+        <tr>
+          <td>Decorator</td>
+          <td>Structural</td>
+          <td>Spring AOP, middleware chains</td>
+        </tr>
+        <tr>
+          <td>Proxy</td>
+          <td>Structural</td>
+          <td>Spring AOP internals</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="dsa" class="section">
+      <p class="section-title">DSA roadmap — the real differentiator</p>
+      <div class="success">
+        <p>DSA is what separates 4 LPA from 20 LPA offers. Product companies (Amazon, Flipkart, Razorpay, PhonePe)
+          always
+          have 1–3 DSA rounds. Target: 300 LeetCode problems with understanding, not blind memorisation.</p>
+      </div>
+
+      <p class="sub-title">Learning order (strictly follow this)</p>
+      <table>
+        <tr>
+          <th>Week</th>
+          <th>Topic</th>
+          <th>Problems target</th>
+          <th>Priority</th>
+        </tr>
+        <tr>
+          <td>W1–W2</td>
+          <td>Arrays + Strings + Two pointers</td>
+          <td>30 easy</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W3</td>
+          <td>Hashing (HashMap/Set patterns)</td>
+          <td>20 easy-medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W4</td>
+          <td>Sliding Window + Prefix Sum</td>
+          <td>20 medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W5</td>
+          <td>Linked List</td>
+          <td>20 easy-medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W6</td>
+          <td>Stack & Queue</td>
+          <td>20 medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W7–W8</td>
+          <td>Recursion + Backtracking</td>
+          <td>25 medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W9–W10</td>
+          <td>Binary Search</td>
+          <td>20 medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W11–W12</td>
+          <td>Trees (Binary Tree, BST)</td>
+          <td>35 medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W13–W14</td>
+          <td>Heaps + Greedy</td>
+          <td>20 medium</td>
+          <td><span class="badge high">HIGH ROI</span></td>
+        </tr>
+        <tr>
+          <td>W15–W16</td>
+          <td>Graphs (BFS/DFS/Topo)</td>
+          <td>30 medium</td>
+          <td><span class="badge must">MUST</span></td>
+        </tr>
+        <tr>
+          <td>W17–W20</td>
+          <td>Dynamic Programming</td>
+          <td>40 medium-hard</td>
+          <td><span class="badge high">HIGH ROI</span></td>
+        </tr>
+      </table>
+
+      <p class="sub-title">Daily DSA strategy</p>
+      <div class="phase-grid">
+        <div class="card">
+          <h3>Morning (1.5 hrs)</h3>
+          <ul>
+            <li>Attempt 1 new problem cold</li>
+            <li>No solution for 25–30 min</li>
+            <li>Read editorial if stuck</li>
+            <li>Re-solve from scratch</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evening (1 hr)</h3>
+          <ul>
+            <li>Revise yesterday's problem</li>
+            <li>Note pattern in a sheet</li>
+            <li>Attempt 1 variation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Weekly</h3>
+          <ul>
+            <li>1 timed LeetCode contest</li>
+            <li>Review all week's patterns</li>
+            <li>Identify weak topic</li>
+            <li>Track on a spreadsheet</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Resources</h3>
+          <ul>
+            <li>LeetCode (primary)</li>
+            <li>Striver's A2Z Sheet</li>
+            <li>NeetCode 150</li>
+            <li>GeeksforGeeks for theory</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub-title">Most asked topics in India product company interviews</p>
+      <table>
+        <tr>
+          <th>Topic</th>
+          <th>Frequency</th>
+          <th>Target problems</th>
+        </tr>
+        <tr>
+          <td>Arrays / Two pointers</td>
+          <td>Very high</td>
+          <td>30–40</td>
+        </tr>
+        <tr>
+          <td>Trees / BST</td>
+          <td>Very high</td>
+          <td>30–35</td>
+        </tr>
+        <tr>
+          <td>DP (DP on strings, DP on grids)</td>
+          <td>High</td>
+          <td>35–40</td>
+        </tr>
+        <tr>
+          <td>Graphs (BFS/DFS)</td>
+          <td>High</td>
+          <td>25–30</td>
+        </tr>
+        <tr>
+          <td>Sliding window / Hashing</td>
+          <td>High</td>
+          <td>20–25</td>
+        </tr>
+        <tr>
+          <td>Binary search variants</td>
+          <td>Medium-high</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>Linked list</td>
+          <td>Medium</td>
+          <td>15–20</td>
+        </tr>
+        <tr>
+          <td>Heap / Priority queue</td>
+          <td>Medium</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>Backtracking</td>
+          <td>Medium</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>Stack / Queue / Monotonic</td>
+          <td>Medium</td>
+          <td>15</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="backend" class="section">
+      <p class="section-title">Java backend development stack</p>
+
+      <p class="sub-title">SQL & databases</p>
+      <table>
+        <tr>
+          <th>Topic</th>
+          <th>Priority</th>
+          <th>Learn depth</th>
+        </tr>
+        <tr>
+          <td>Basic SQL (SELECT, WHERE, GROUP BY, ORDER BY)</td>
+          <td><span class="badge must">MUST</span></td>
+          <td>100% mastery</td>
+        </tr>
+        <tr>
+          <td>Joins (INNER, LEFT, RIGHT, FULL, SELF)</td>
+          <td><span class="badge must">MUST</span></td>
+          <td>100% mastery</td>
+        </tr>
+        <tr>
+          <td>Subqueries & CTEs</td>
+          <td><span class="badge must">MUST</span></td>
+          <td>Deep</td>
+        </tr>
+        <tr>
+          <td>Indexes & Query optimization</td>
+          <td><span class="badge must">MUST</span></td>
+          <td>Conceptual + hands-on</td>
+        </tr>
+        <tr>
+          <td>Transactions & ACID</td>
+          <td><span class="badge must">MUST</span></td>
+          <td>Conceptual for interviews</td>
+        </tr>
+        <tr>
+          <td>Normalization (1NF–3NF)</td>
+          <td><span class="badge high">HIGH ROI</span></td>
+          <td>Conceptual</td>
+        </tr>
+        <tr>
+          <td>MySQL or PostgreSQL</td>
+          <td><span class="badge must">MUST</span></td>
+          <td>Hands-on with both</td>
+        </tr>
+        <tr>
+          <td>Window functions (RANK, ROW_NUMBER)</td>
+          <td><span class="badge high">HIGH ROI</span></td>
+          <td>Medium depth</td>
+        </tr>
+      </table>
+
+      <p class="sub-title">Spring ecosystem (fresher requirements)</p>
+      <div class="phase-grid">
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Spring Boot core</h3>
+          <ul>
+            <li>Auto-configuration</li>
+            <li>Application properties</li>
+            <li>Dependency Injection</li>
+            <li>@Component, @Service, @Repository</li>
+            <li>Bean lifecycle</li>
+            <li>Profiles (dev/prod)</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Spring MVC & REST</h3>
+          <ul>
+            <li>@RestController, @GetMapping</li>
+            <li>Request/Response body</li>
+            <li>Exception handling (@ControllerAdvice)</li>
+            <li>Validation (@Valid, @NotNull)</li>
+            <li>Pagination & sorting</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge must">MUST LEARN</span>
+          <h3>Spring Data JPA</h3>
+          <ul>
+            <li>Entity, Repository</li>
+            <li>JPQL queries</li>
+            <li>Relationships (@OneToMany, @ManyToOne)</li>
+            <li>Lazy vs eager loading</li>
+            <li>Transactions (@Transactional)</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge high">HIGH ROI</span>
+          <h3>Spring Security + JWT</h3>
+          <ul>
+            <li>SecurityFilterChain</li>
+            <li>JWT token generation</li>
+            <li>Role-based access control</li>
+            <li>BCrypt password encoding</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge high">HIGH ROI</span>
+          <h3>Microservices basics</h3>
+          <ul>
+            <li>Service decomposition concept</li>
+            <li>REST between services</li>
+            <li>Spring Cloud basics</li>
+            <li>API Gateway concept</li>
+          </ul>
+        </div>
+        <div class="card"><span class="badge good">GOOD TO HAVE</span>
+          <h3>DevOps basics</h3>
+          <ul>
+            <li>Docker: image, container, Dockerfile</li>
+            <li>docker-compose for local setup</li>
+            <li>GitHub Actions CI basics</li>
+            <li>Heroku / Railway deploy</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub-title">What freshers vs experienced need</p>
+      <table>
+        <tr>
+          <th>Skill</th>
+          <th>Fresher (10 LPA)</th>
+          <th>3 YOE (20+ LPA)</th>
+        </tr>
+        <tr>
+          <td>DSA</td>
+          <td>300 problems, medium/hard</td>
+          <td>400+ including hard</td>
+        </tr>
+        <tr>
+          <td>Spring Boot</td>
+          <td>Can build REST APIs confidently</td>
+          <td>Deep internals, AOP, reactive</td>
+        </tr>
+        <tr>
+          <td>System Design</td>
+          <td>Basics: URL shortener, chat app</td>
+          <td>Full HLD with trade-offs</td>
+        </tr>
+        <tr>
+          <td>Microservices</td>
+          <td>Conceptual understanding</td>
+          <td>Production experience</td>
+        </tr>
+        <tr>
+          <td>Docker/K8s</td>
+          <td>Docker basics only</td>
+          <td>Full orchestration</td>
+        </tr>
+        <tr>
+          <td>Projects</td>
+          <td>2–3 strong, well-documented</td>
+          <td>Production-scale work</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="projects" class="section">
+      <p class="section-title">10 projects — beginner to resume-worthy</p>
+
+      <div class="proj-card">
+        <h3>1. Student Grade Calculator (CLI)</h3>
+        <div class="proj-meta"><span>Core Java</span><span>Beginner</span><span>Week 6</span></div>
+        <p>Calculate GPA, grade letter, rank among students. Teaches: OOP, arrays, methods, conditionals. Low recruiter
+          value but critical for building confidence.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>2. Library Management System (CLI)</h3>
+        <div class="proj-meta"><span>Core Java</span><span>Collections</span><span>Beginner</span></div>
+        <p>Issue books, return books, search by author/title. Uses: HashMap, ArrayList, OOP hierarchy. Teaches
+          Collections
+          framework deeply. Include in GitHub but not resume.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>3. Banking System (OOP-focused)</h3>
+        <div class="proj-meta"><span>Core Java + File I/O</span><span>Intermediate</span></div>
+        <p>Accounts, deposits, withdrawals, transfers with file persistence. Teaches: encapsulation, inheritance,
+          exception
+          handling, file I/O. Good for learning, not resume.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>4. URL Shortener — REST API</h3>
+        <div class="proj-meta"><span>Spring
+            Boot</span><span>MySQL</span><span>Intermediate</span><span>Resume-worthy</span>
+        </div>
+        <p>Shorten URLs, redirect, track click count, expiry. Features: Spring Boot REST, JPA, MySQL, input validation,
+          unit
+          tests. Strong teaching project. Put on resume early.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>5. Task Manager (Todo API)</h3>
+        <div class="proj-meta"><span>Spring Boot</span><span>Spring Security</span><span>JWT</span><span>MySQL</span>
+        </div>
+        <p>CRUD tasks per user, JWT auth, role-based access (user/admin), Swagger docs. Teaches full auth flow.
+          Recruiters
+          see this as standard; differentiate with good code quality and tests.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>6. E-commerce Backend API</h3>
+        <div class="proj-meta"><span>Spring Boot</span><span>JPA</span><span>Redis</span><span>Resume-worthy</span>
+        </div>
+        <p>Products, cart, orders, payments (Razorpay/Stripe mock), product search, Redis caching for catalogue.
+          Recruiters
+          love this — mirrors real business domain. Write thorough README with API docs.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>7. Real-time Chat Backend</h3>
+        <div class="proj-meta"><span>Spring Boot</span><span>WebSockets</span><span>MongoDB</span><span>Advanced</span>
+        </div>
+        <p>Private messaging, group chat, typing indicators, message history. Teaches WebSocket with STOMP, NoSQL
+          basics.
+          High visual impact in demos. Include architecture diagram in README.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>8. Expense Tracker with Analytics</h3>
+        <div class="proj-meta"><span>Spring Boot</span><span>JPA</span><span>Charts API</span><span>Resume-worthy</span>
+        </div>
+        <p>Track expenses by category, monthly/weekly reports, budget alerts. Teaches: aggregation queries, date range
+          queries, response transformation. Simple idea, high execution quality = strong signal.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>9. Job Portal API (Microservices)</h3>
+        <div class="proj-meta"><span>Spring
+            Boot</span><span>Microservices</span><span>Kafka</span><span>Docker</span><span>Top-tier</span></div>
+        <p>Separate services: user-service, job-service, notification-service. Kafka for async notifications.
+          Docker-compose
+          for running locally. API Gateway. This is a product company-level project. Put it front and centre on resume.
+        </p>
+      </div>
+
+      <div class="proj-card">
+        <h3>10. Social Media Backend (Clone)</h3>
+        <div class="proj-meta"><span>Spring
+            Boot</span><span>Redis</span><span>Kafka</span><span>Elasticsearch</span><span>Top-tier</span></div>
+        <p>Posts, followers, feed generation, search. Redis for feed caching, Kafka for events, Elasticsearch for
+          full-text
+          search. Demonstrates: real architecture thinking, write it only if you can explain every design decision.
+          Killer
+          portfolio piece.</p>
+      </div>
+    </div>
+
+    <div id="interview" class="section">
+      <p class="section-title">Interview preparation roadmap</p>
+
+      <p class="sub-title">Round types in product company hiring (India 2026)</p>
+      <table>
+        <tr>
+          <th>Round</th>
+          <th>What's tested</th>
+          <th>Prep strategy</th>
+        </tr>
+        <tr>
+          <td>Online Assessment (OA)</td>
+          <td>2 DSA problems, 60–90 min</td>
+          <td>LeetCode easy-medium, timed practice</td>
+        </tr>
+        <tr>
+          <td>DSA round 1</td>
+          <td>1–2 medium problems, discussion</td>
+          <td>Explain approach before coding</td>
+        </tr>
+        <tr>
+          <td>DSA round 2 (senior)</td>
+          <td>Medium-hard, edge cases</td>
+          <td>Practice articulating complexity</td>
+        </tr>
+        <tr>
+          <td>Machine coding</td>
+          <td>Design + code in 60–90 min</td>
+          <td>Practice parking lot, chess, snake ladder etc.</td>
+        </tr>
+        <tr>
+          <td>LLD round</td>
+          <td>Design classes/system for a feature</td>
+          <td>SOLID principles, design patterns</td>
+        </tr>
+        <tr>
+          <td>HLD / System design</td>
+          <td>Architecture of URL shortener, Netflix etc.</td>
+          <td>Watch Gaurav Sen, ByteByteGo</td>
+        </tr>
+        <tr>
+          <td>Core Java / Backend</td>
+          <td>Spring internals, JVM, Collections</td>
+          <td>Revise from notes, mock Q&A</td>
+        </tr>
+        <tr>
+          <td>HR / CTC negotiation</td>
+          <td>Fitment, career goals, offer discussion</td>
+          <td>Prep STAR stories, know market rates</td>
+        </tr>
+      </table>
+
+      <p class="sub-title">Top Java interview questions (must prep)</p>
+      <div class="phase-grid">
+        <div class="card">
+          <h3>OOP / Core Java</h3>
+          <ul>
+            <li>What is method overriding vs overloading?</li>
+            <li>Difference between abstract class and interface</li>
+            <li>How does HashMap work internally?</li>
+            <li>What is equals() vs ==?</li>
+            <li>String immutability and String pool</li>
+            <li>Explain the singleton pattern</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Java 8 / Advanced</h3>
+          <ul>
+            <li>What are Streams? How do they work?</li>
+            <li>What is Optional? Why use it?</li>
+            <li>Difference between Comparable and Comparator</li>
+            <li>What is a functional interface?</li>
+            <li>Explain thread safety in Java</li>
+            <li>What is volatile keyword?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Spring / Backend</h3>
+          <ul>
+            <li>What is IOC and DI in Spring?</li>
+            <li>How does Spring Boot auto-configure?</li>
+            <li>Difference between @Component/@Service/@Repository</li>
+            <li>What is @Transactional?</li>
+            <li>How does JWT auth work?</li>
+            <li>What is lazy loading in JPA?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>LLD / Design</h3>
+          <ul>
+            <li>Design a parking lot system</li>
+            <li>Design a library management system</li>
+            <li>Design an ATM</li>
+            <li>SOLID principles with examples</li>
+            <li>When to use Factory vs Builder?</li>
+            <li>Explain Observer pattern with code</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub-title">Salary negotiation script</p>
+      <div class="card" style="margin-top:0.5rem">
+        <ul>
+          <li>Always give a range, not a single number. "My expectation is 12–15 LPA based on market data."</li>
+          <li>Research: Glassdoor, AmbitionBox, LinkedIn Salary for the exact company+role+city.</li>
+          <li>Never reveal your current/previous CTC first. "Let me understand the full scope of the role first."</li>
+          <li>Counter any offer. Even a 10–15% counter is normal and expected.</li>
+          <li>Include joining bonus ask if base is stuck: "Can we include a signing bonus to bridge the gap?"</li>
+          <li>Get everything in writing before declining other offers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="resume" class="section">
+      <p class="section-title">Resume strategy for freshers targeting 10+ LPA</p>
+      <div class="warn">
+        <p>Most fresher resumes are rejected in under 10 seconds because they list skills without context, use dense
+          templates, and include irrelevant content. A clean, ATS-friendly 1-page resume with 2–3 strong projects beats
+          a
+          3-page resume with 10 weak ones.</p>
+      </div>
+
+      <p class="sub-title">Resume structure (in this order)</p>
+      <table>
+        <tr>
+          <th>Section</th>
+          <th>Content</th>
+          <th>Length</th>
+        </tr>
+        <tr>
+          <td>Header</td>
+          <td>Name, phone, email, LinkedIn, GitHub (no photo, no address)</td>
+          <td>3 lines</td>
+        </tr>
+        <tr>
+          <td>Summary (optional)</td>
+          <td>1–2 lines: "Java backend developer with strong DSA skills and 2 production-grade projects"</td>
+          <td>2 lines max</td>
+        </tr>
+        <tr>
+          <td>Skills</td>
+          <td>Java, Spring Boot, SQL, Git, DSA, REST APIs, Docker (only what you know)</td>
+          <td>2–3 lines</td>
+        </tr>
+        <tr>
+          <td>Projects (most important)</td>
+          <td>2–3 projects with bullet points: what you built, tech used, scale/impact</td>
+          <td>1/3 of resume</td>
+        </tr>
+        <tr>
+          <td>Education</td>
+          <td>Degree, college, CGPA (include only if 7.0+), year</td>
+          <td>3–4 lines</td>
+        </tr>
+        <tr>
+          <td>Achievements</td>
+          <td>LeetCode rating, hackathon wins, certifications, open source contributions</td>
+          <td>3–5 bullets</td>
+        </tr>
+        <tr>
+          <td>Certifications</td>
+          <td>Only add if relevant: AWS Cloud Practitioner, Oracle Java Cert, Spring cert</td>
+          <td>1–2 lines</td>
+        </tr>
+      </table>
+
+      <p class="sub-title">How to write project bullets (the difference-maker)</p>
+      <div class="card">
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:8px">Bad: "Built an e-commerce website
+          using Spring Boot and MySQL"</p>
+        <p style="font-size:13px;color:var(--accent);margin-bottom:12px">Good: "Developed a RESTful e-commerce backend
+          with Spring
+          Boot, handling 10+ API endpoints, JWT authentication, and Redis caching reducing DB load by 40% in local load
+          tests. Deployed on Railway with CI/CD via GitHub Actions."</p>
+        <ul style="list-style:none;padding:0">
+          <li
+            style="font-size:13px;color:var(--text-secondary);padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            → Always include: what problem it solves, tech stack, a metric or scale indicator</li>
+          <li
+            style="font-size:13px;color:var(--text-secondary);padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            → GitHub link must be live with a README that explains setup and architecture</li>
+          <li style="font-size:13px;color:var(--text-secondary);padding:3px 0">→ Use action verbs: Designed, Built,
+            Implemented, Optimised, Deployed</li>
+        </ul>
+      </div>
+
+      <p class="sub-title">ATS tips</p>
+      <div class="card">
+        <ul>
+          <li>Use a clean single-column or two-column (left: main content) template. No tables, no text boxes.</li>
+          <li>Include keywords from the job description: "Spring Boot", "REST API", "microservices", "Java 17".</li>
+          <li>Use standard section headings: "Projects", "Education", "Skills" — not creative names.</li>
+          <li>Submit as PDF unless docx explicitly asked for.</li>
+          <li>Keep to exactly 1 page. Experienced can do 2; fresher must do 1.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="job" class="section">
+      <p class="section-title">Job search strategy — India 2026 market</p>
+
+      <p class="sub-title">Where to apply</p>
+      <table>
+        <tr>
+          <th>Platform</th>
+          <th>Best for</th>
+          <th>Strategy</th>
+        </tr>
+        <tr>
+          <td>LinkedIn</td>
+          <td>Product companies, startups</td>
+          <td>Apply + connect with hiring manager on same day</td>
+        </tr>
+        <tr>
+          <td>Naukri.com</td>
+          <td>Service companies, mid-size</td>
+          <td>Update profile weekly — recency matters to recruiters</td>
+        </tr>
+        <tr>
+          <td>Instahyre</td>
+          <td>Startups, product companies</td>
+          <td>Strong for Bangalore/Hyderabad startups</td>
+        </tr>
+        <tr>
+          <td>Company career pages</td>
+          <td>MAANG, unicorns</td>
+          <td>Apply directly on Amazon, Google, Razorpay sites</td>
+        </tr>
+        <tr>
+          <td>AngelList / Wellfound</td>
+          <td>Early-stage startups</td>
+          <td>Good for 8–15 LPA roles with equity</td>
+        </tr>
+        <tr>
+          <td>Glassdoor / Indeed</td>
+          <td>General search</td>
+          <td>Secondary — most roles also on LinkedIn</td>
+        </tr>
+        <tr>
+          <td>Referrals (best ROI)</td>
+          <td>All companies</td>
+          <td>Ask seniors, alumni, LinkedIn connections inside company</td>
+        </tr>
+      </table>
+
+      <p class="sub-title">LinkedIn strategy (most important platform)</p>
+      <div class="phase-grid">
+        <div class="card">
+          <h3>Profile optimization</h3>
+          <ul>
+            <li>Professional photo</li>
+            <li>Headline: "Java Backend Developer | Spring Boot | DSA | Open to opportunities"</li>
+            <li>500+ connections (prioritise people in tech)</li>
+            <li>Featured section: pin your best project/GitHub</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Content strategy</h3>
+          <ul>
+            <li>Post 2–3 times/week: what you learned, project updates, DSA tips</li>
+            <li>Engage with posts from engineers at target companies</li>
+            <li>Share GitHub project links with screenshots</li>
+            <li>Document your learning journey publicly</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Cold outreach template</h3>
+          <ul>
+            <li>Find engineers at target company on LinkedIn</li>
+            <li>Connect with personalised note (not template)</li>
+            <li>Wait 3–5 days, then send a message</li>
+            <li>Ask for 15-min call, not directly for referral</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>GitHub portfolio</h3>
+          <ul>
+            <li>Pinned repos: top 3 projects</li>
+            <li>Each project has README with screenshots</li>
+            <li>Consistent commit history (green squares)</li>
+            <li>Contribution graph should show daily activity</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub-title">Cold email / LinkedIn DM template</p>
+      <div class="card">
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7">Hi [Name], I noticed you're a [role] at
+          [Company] — I've been following [Company]'s engineering blog on [topic X] and found it really insightful. I'm
+          a
+          final-year CS student / recent graduate with strong Java + Spring Boot skills, and I've built [brief project
+          mention]. I'd love to learn from your experience — would you have 15 minutes for a quick call? No pressure if
+          you're busy! Thanks, [Your Name]</p>
+        <p style="font-size:12px;color:var(--accent);margin-top:8px">Rule: personalise every message. Generic "please
+          refer me"
+          messages are ignored 99% of the time.</p>
+      </div>
+    </div>
+
+    <div id="schedule" class="section">
+      <p class="section-title">Weekly study plan (6 hours/day)</p>
+
+      <div class="week-grid">
+        <div class="day">
+          <div class="dname">Mon</div>
+          <div class="dcon">Core learning 2h + DSA 2h + project 2h</div>
+        </div>
+        <div class="day">
+          <div class="dname">Tue</div>
+          <div class="dcon">Core learning 2h + DSA 2h + project 2h</div>
+        </div>
+        <div class="day">
+          <div class="dname">Wed</div>
+          <div class="dcon">Backend dev 3h + DSA 2h + resume/GitHub 1h</div>
+        </div>
+        <div class="day">
+          <div class="dname">Thu</div>
+          <div class="dcon">Core learning 2h + DSA 2h + project 2h</div>
+        </div>
+        <div class="day">
+          <div class="dname">Fri</div>
+          <div class="dcon">Backend dev 3h + DSA 2h + reading 1h</div>
+        </div>
+        <div class="day">
+          <div class="dname">Sat</div>
+          <div class="dcon">Project deep work 4h + LeetCode contest 2h</div>
+        </div>
+        <div class="day">
+          <div class="dname">Sun</div>
+          <div class="dcon">Review week + mock interview 2h + plan next week</div>
+        </div>
+      </div>
+
+      <p class="sub-title">Month-by-month breakdown</p>
+      <table>
+        <tr>
+          <th>Month</th>
+          <th>Primary focus (3h/day)</th>
+          <th>Secondary (2h/day)</th>
+          <th>Third (1h/day)</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Core Java basics + OOP</td>
+          <td>Easy LeetCode (arrays, strings)</td>
+          <td>Git, Linux, setup</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Core Java advanced (Collections, Java 8+)</td>
+          <td>DSA (hashing, sliding window)</td>
+          <td>SQL basics</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>DSA (LinkedList, Stack, Queue, Trees)</td>
+          <td>SQL intermediate, JDBC</td>
+          <td>Revise Java</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>DSA (Graphs, Binary Search, Backtracking)</td>
+          <td>Spring Boot basics + first REST API</td>
+          <td>SQL advanced</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Spring Boot + JPA + Security + JWT</td>
+          <td>DSA (DP start)</td>
+          <td>Build project 4</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>DP deep dive + Spring advanced</td>
+          <td>Build project 5 + 6</td>
+          <td>System design basics</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Microservices + Docker + advanced projects</td>
+          <td>LLD practice</td>
+          <td>DSA revision</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Full project polish + system design</td>
+          <td>Mock interviews daily</td>
+          <td>Resume + LinkedIn</td>
+        </tr>
+        <tr>
+          <td>9–10</td>
+          <td>Apply aggressively + interview prep</td>
+          <td>Mock interviews + weakness fix</td>
+          <td>Networking</td>
+        </tr>
+        <tr>
+          <td>11–12</td>
+          <td>Interviews + offers + negotiation</td>
+          <td>Keep solving DSA</td>
+          <td>Celebrate</td>
+        </tr>
+      </table>
+
+      <p class="sub-title">Common mistakes that kill 10+ LPA chances</p>
+      <div class="warn">
+        <p><strong>Tutorial hell:</strong> Watching 100 hours of tutorials without building anything. Build after every
+          concept, even if it's small.</p>
+      </div>
+      <div class="warn">
+        <p><strong>Skipping DSA:</strong> "I'll learn Spring Boot first, DSA later." Wrong. Service companies hire
+          without
+          DSA; product companies don't.</p>
+      </div>
+      <div class="warn">
+        <p><strong>Copy-paste projects:</strong> Following YouTube tutorials step-by-step and putting the result on
+          resume.
+          Recruiters have seen 1000 identical todo apps.</p>
+      </div>
+      <div class="warn">
+        <p><strong>No deployment:</strong> Projects that only run on localhost aren't impressive. Deploy to Railway,
+          Render,
+          or AWS free tier.</p>
+      </div>
+      <div class="warn">
+        <p><strong>Weak GitHub:</strong> Private repos, no README, no commit history, no description. Your GitHub is
+          your
+          portfolio — treat it like one.</p>
+      </div>
+      <div class="warn">
+        <p><strong>Only applying online:</strong> 80% of hirings involve referrals. Spend at least 30% of job-search
+          time on
+          networking.</p>
+      </div>
+      <div class="warn">
+        <p><strong>Neglecting communication:</strong> In interviews, thinking silently and then presenting the solution
+          is a
+          red flag. Talk through your approach always.</p>
+      </div>
+    </div>
+
+    <div id="truth" class="section">
+      <p class="section-title">The brutal truth about 10+ LPA as a fresher</p>
+
+      <div class="truth-box">
+        <h3>Is 10+ LPA realistic?</h3>
+        <p>Yes — but for the top 5–10% of freshers, not average ones. In India 2026, companies like Razorpay, PhonePe,
+          Zepto, Swiggy, Amazon, and Atlassian regularly hire freshers at 12–35 LPA. These are competitive — thousands
+          apply, 10–30 get hired. But if you follow this roadmap with full discipline, you are genuinely competitive for
+          these roles.</p>
+      </div>
+
+      <div class="truth-box">
+        <h3>What separates selected vs rejected candidates?</h3>
+        <p>It comes down to three things. First, DSA depth — most rejected candidates solve 80 easy problems and stop.
+          Hired
+          candidates solve 250–350 problems including mediums and understand patterns, not solutions. Second, project
+          quality — hired candidates can talk about every design decision in their project for 30 minutes. Rejected
+          candidates built it from a tutorial. Third, communication — in every round, the ability to think out loud and
+          articulate trade-offs is as important as the correct answer.</p>
+      </div>
+
+      <div class="truth-box">
+        <h3>How much effort is actually required?</h3>
+        <p>6 hours of focused work daily, 7 days a week, for 10–12 months. Not 6 hours of watching tutorials — 6 hours
+          of
+          coding, building, and solving. That is roughly 2000+ hours of quality practice. Most people who "try for 6
+          months"
+          actually put in 800–900 hours because of breaks, half-attention, and comfort-zone problems only. The ones who
+          make
+          it are simply the ones who don't stop.</p>
+      </div>
+
+      <div class="truth-box">
+        <h3>Your biggest risk</h3>
+        <p>Not lack of talent — lack of consistency. 90% of people who start this journey quit in month 2–3 when the
+          material gets hard (DSA trees, backtracking). If you get through month 4, you are already in the top 20% of
+          candidates. If you get through month 7, you are in the top 5%.</p>
+      </div>
+
+      <p class="sub-title">Final checklist before applying</p>
+      <table>
+        <tr>
+          <th>Checkpoint</th>
+          <th>Target</th>
+        </tr>
+        <tr>
+          <td>LeetCode problems solved</td>
+          <td>250+ (mix of easy/medium/hard)</td>
+        </tr>
+        <tr>
+          <td>LeetCode contest rating</td>
+          <td>1500+ (1600+ is excellent)</td>
+        </tr>
+        <tr>
+          <td>Strong Spring Boot projects</td>
+          <td>2–3 with live deployment</td>
+        </tr>
+        <tr>
+          <td>GitHub profile</td>
+          <td>Active, pinned repos, good READMEs</td>
+        </tr>
+        <tr>
+          <td>Resume</td>
+          <td>1 page, ATS-clean, reviewed by someone in tech</td>
+        </tr>
+        <tr>
+          <td>Mock interviews done</td>
+          <td>10+ with peers or on Pramp/Interviewing.io</td>
+        </tr>
+        <tr>
+          <td>LLD design patterns</td>
+          <td>Can code Singleton, Factory, Strategy, Observer</td>
+        </tr>
+        <tr>
+          <td>System design</td>
+          <td>Can explain URL shortener, rate limiter, chat design</td>
+        </tr>
+        <tr>
+          <td>SQL</td>
+          <td>Can write complex joins, window functions, explain indexes</td>
+        </tr>
+        <tr>
+          <td>Java core Q&A</td>
+          <td>Fluent on 50+ common interview questions</td>
+        </tr>
+      </table>
+
+      <div class="success">
+        <p>You now have a complete map. The only thing between you and a 10+ LPA offer is execution. No shortcut, no
+          hack —
+          just 2000 hours of disciplined, focused work. The map is clear. Start today.</p>
+      </div>
+    </div>
+
+    <script>
+      function show(id, btn) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if (btn) btn.classList.add('active');
+        history.replaceState(null, '', '#' + id);
+      }
+
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      function restoreFromHash() {
+        const hash = window.location.hash.replace('#', '');
+        const section = hash ? document.getElementById(hash) : null;
+        if (section && section.classList.contains('section')) {
+          document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+          document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+          section.classList.add('active');
+          const buttons = document.querySelectorAll('.nav button');
+          buttons.forEach(b => {
+            if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + hash + "'")) {
+              b.classList.add('active');
+            }
+          });
+        }
+        window.scrollTo(0, 0);
+      }
+
+      window.addEventListener('DOMContentLoaded', restoreFromHash);
+      window.addEventListener('hashchange', restoreFromHash);
+    </script>
+  </div>
+</body>
+
+</html>
